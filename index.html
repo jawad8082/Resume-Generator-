@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Resume</title>
+</head>
+
+<body>
+    <!-- Input field -->
+    <div class="Input_field">
+        <h1 class="text-center my-4 font-bold text-3xl">Resume Generator</h1>
+        <div class="information grid grid-rows-1 grid-cols-2 gap-2 mx-6">
+            <div class="pInfo">
+
+                <h1 class="text-lg font-bold">Your Name</h1>
+                <input class="border-2 w-11/12 px-2 border-black" type="text" id="Name"
+                    placeholder="Enter your Name"><br>
+                <h1 class="text-lg font-bold">Your Email Address</h1>
+                <input class="border-2 w-11/12 px-2 border-black" type="email" id="email"
+                    placeholder="abc@gmail.com"><br>
+                <h1 class="text-lg font-bold">Your Phome Number</h1>
+                <input class="border-2 w-11/12 px-2 border-black" type="number" id="phone"
+                    placeholder="+923123456789"><br>
+                <h1 class="text-lg font-bold">Your Address</h1>
+                <input class="border-2 w-11/12 px-2 border-black" type="text" id="address"
+                    placeholder="Enter Your Address"><br>
+                <h1 class="text-lg font-bold">Objective</h1>
+                <textarea class="border-2 p-2 border-black" name="WorkExp" id="Objective" cols="80"
+                    rows="10"></textarea><br>
+                <h1 class="text-lg font-bold">Select Your Photo</h1>
+                <input id="img" type="file">
+            </div>
+            <div class="eInfo">
+                <div id="education">
+                    <h1 class="text-lg font-bold">Education</h1>
+                    <input class=" Edu border-2 px-2 w-11/12 border-black" type="text" placeholder="Enter Your Edution"><br>
+                    <input class="PYEdu border-2 px-2 my-2 w-11/12 border-black" type="text"
+                        placeholder="2015-2019"><br>
+                    <div class="flex items-center justify-center" id="EduBtn">
+                        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold my-3 py-2 px-4"
+                            onclick="education()">Add</button>
+                    </div>
+                </div>
+                <div id="work">
+                    <h1 class="text-lg font-bold">Working Experience</h1>
+                    <input class="workExp border-2 px-2 my-2 w-11/12 border-black" type="text"
+                        placeholder="About Your work"><br>
+                    <input class="company border-2 px-2 my-2 w-11/12 border-black" type="text"
+                        placeholder="Company">
+                    <input class="field border-2 px-2 my-2 w-11/12 border-black" type="text"
+                        placeholder="Field"><br>
+                    <input class="PYWork border-2 px-2 my-2 w-11/12 border-black" type="number"
+                        placeholder="2015-2019"><br>
+                    <div class="flex items-center justify-center" id="workBtn">
+                        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold my-3 py-2 px-4"
+                            onclick="work()">Add</button>
+                    </div>
+                </div>
+                <div id="language">
+                    <h1 class="text-lg font-bold">Language</h1>
+                    <input class="lang border-2 px-2 my-2 w-11/12 border-black" type="text" placeholder="English"><br>
+                    <div class="flex items-center justify-center" id="langBtn">
+                        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold my-3 py-2 px-4"
+                            onclick="language()">Add</button>
+                    </div>
+                </div>
+                <div id="skills">
+                    <h1 class="text-lg font-bold">Skills</h1>
+                    <input class="skill border-2 px-2 my-2 w-11/12 border-black" type="text"
+                        placeholder="Enter Your Skills"><br>
+                    <div class="flex items-center justify-center" id="skillBtn">
+                        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold my-3 py-2 px-4"
+                            onclick="skills()">Add</button>
+                    </div>
+                </div>
+                <div id="hobby">
+                    <h1 class="text-lg font-bold">Hobbies</h1>
+                    <input class="hobbies border-2 px-2 my-2 w-11/12 border-black" type="text"
+                        placeholder="Enter Your Hobbies"><br>
+                    <div class="flex items-center justify-center" id="hobbyBtn">
+                        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold my-3 py-2 px-4"
+                            onclick="hobby()">Add</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="flex items-center justify-center">
+            <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold my-3 py-2 px-4"
+                onclick="generate()">Generate Resume</button>
+            <!-- <a target="_blank" href="Resume.html">hh</a> -->
+        </div>
+    </div>
+
+    <!-- Resume Template -->
+    <div id="Template" class=" hidden">
+    <!-- <div id="Template"> -->
+        <div class="grid grid-rows-1 grid-cols-3 gap-2 mx-6">
+            <div class="p-3">
+                <h1 id="TName" class="text-black font-semibold text-2xl mb-6"></h1>
+                <img id="Timg" src="https://t4.ftcdn.net/jpg/00/64/67/63/360_F_64676383_LdbmhiNM6Ypzb3FM4PPuFP9rHe7ri8Ju.jpg"
+                    class="w-44">
+                <div id="Tcontact" class="my-11">
+                    <h1 class="text-black font-semibold text-2xl my-4">Contact
+                        <hr class="border-1 border-slate-600">
+                    </h1>
+                    <h1 class="font-bold mt-8">Address</h1>
+                    <li id="Taddress" class="text-slate-700 list-none text-justify"></li>
+
+                    <h1 class="font-bold mt-4">Phone</h1>
+                    <li id="Tphone" class="text-slate-700 list-none"></li>
+
+                    <h1 class="font-bold mt-4">Email</h1>
+                    <li id="Temail" class="text-slate-700 list-none"></li>
+
+                </div>
+                <div id="Tlanguage" class="my-11">
+                    <h1 class="text-black font-semibold text-2xl my-4">Language
+                        <hr class="border-1 border-slate-600">
+                    </h1>
+                    <li class="text-slate-700 list-none mb-2 text-justify" id="Tlang">English</li>
+                </div>
+                <div class="my-11">
+                    <h1 class="text-black font-semibold text-2xl my-4">Hobbies
+                        <hr class="border-1 border-slate-600">
+                    </h1>
+                    <li class="text-slate-700 list-none mb-2 text-justify" id="Thobbies">PLaying Foot ball</li>
+                </div>
+            </div>
+            <div class="col-span-2 p-3">
+                <div id="TObjective">
+                    <h1 class="text-black font-semibold text-2xl mb-4">Objective
+                        <hr class="border-1 border-slate-600">
+                    </h1>
+                    <p class="text-justify mb-4 TObjective">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        Laudantium
+                        reiciendis alias eligendi veritatis, maiores aliquam quam deleniti ratione a. Cum voluptatum,
+                        dolores eligendi dolore fugiat dignissimos deleniti nobis. Dignissimos labore error sit!</p>
+                </div>
+                <div id="Teducation">
+                    <h1 class="text-black font-semibold text-2xl mb-4">Education
+                        <hr class="border-1 border-slate-600">
+                    </h1>
+                    <div id="TEduField">
+                        <!-- Eduction Field -->
+                    </div>
+                </div>
+                   <div id="Twork">
+                    <h1 class="text-black font-semibold text-2xl mb-4">Work Experience
+                        <hr class="border-1 border-slate-600">
+                    </h1>
+                    <div id="TWorkField">
+                        <!-- Work Field -->
+                    </div>
+                </div>
+                <div class="Tskill">
+                    <h1 class="text-black font-semibold text-2xl mb-4">Skills
+                        <hr class="border-1 border-slate-600">
+                    </h1>
+                    <li class="text-slate-700 list-none mb-2 text-justify" id="Tskill">Full stak</li>
+                </div>
+            </div>
+        </div>
+        <div class="flex items-center justify-center">
+            <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold my-3 py-2 px-4"
+                onclick="printResume()">Print Resume</button>
+        </div>
+    </div>
+
+</body>
+<script src="index.js"></script>
+
+</html>
